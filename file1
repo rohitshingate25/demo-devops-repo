@@ -1,0 +1,10 @@
+resource "aws_instance" "web001" {
+  ami           = "ami-0f5ee92e2d63afc18"
+  instance_type = "t2.micro"
+  availability_zone = "ap-south-1c"
+  subnet_id = aws_subnet.my-subnet.id
+  vpc_security_group_ids = [aws_security_group.My-SG.id]
+  
+  tags = {
+    Name = "web01"
+  }
